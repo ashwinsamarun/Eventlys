@@ -1,0 +1,100 @@
+/* src/styles/EventDetails.css */
+
+.event-details-page {
+  background: #ffffff;
+  min-height: 100vh;
+  padding-top: 80px; /* Space for Navbar */
+}
+
+/* Hero Section with Event Image */
+.details-hero {
+  height: 45vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* Dark texture for readability */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-overlay h1 {
+  font-family: 'Cinzel', serif;
+  color: #fccb00; /* Gold Title */
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Layout Grid */
+.details-container {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.details-main-content h2 {
+  font-family: 'Cinzel', serif;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #fccb00;
+  display: inline-block;
+}
+
+.description-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* The Professional Sidebar (RS3) */
+.booking-sidebar {
+  background: #1a1a1a; /* Dark professional background */
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  height: fit-content;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.sidebar-info p {
+  margin: 15px 0;
+  font-size: 1rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.sidebar-info strong {
+  color: #fccb00; /* Gold Labels */
+}
+
+/* Action Button following your style */
+.btn-book-now {
+  width: 100%;
+  background-color: #fccb00;
+  color: #000;
+  border: none;
+  padding: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
+
+.btn-book-now:hover {
+  background-color: #ffffff;
+  transform: scale(1.02);
+}

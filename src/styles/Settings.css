@@ -1,0 +1,189 @@
+/* src/styles/Settings.css */
+.settings-container {
+  padding: 120px 8% 60px;
+  background: #fdfdfd;
+  min-height: 100vh;
+}
+
+.settings-header { margin-bottom: 40px; }
+
+.settings-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+}
+
+.settings-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tab-btn {
+  padding: 15px 25px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+  color: #666;
+  font-family: inherit;
+}
+
+.tab-btn.active {
+  background: #1a1a1a;
+  color: #fccb00;
+}
+
+.settings-content {
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.form-group { margin-bottom: 25px; }
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.profile-upload {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  background: #1a1a1a;
+  color: #fccb00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.pref-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Danger Zone Styling */
+.danger-zone {
+  margin-top: 50px;
+  padding: 25px;
+  border: 1px solid #ffcccc;
+  background: #fffafa;
+  border-radius: 12px;
+}
+
+.danger-title {
+  color: #d9534f;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.danger-zone p {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.btn-delete-account {
+  background: transparent;
+  color: #d9534f;
+  border: 1px solid #d9534f;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn-delete-account:hover {
+  background: #d9534f;
+  color: #fff;
+}
+
+/* Tab Animation */
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Avatar Button in Settings.css */
+.btn-avatar-gold {
+  background: transparent;
+  color: #1a1a1a;
+  border: 1px solid #fccb00;
+  padding: 8px 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 4px;
+}
+
+.btn-avatar-gold:hover {
+  background: #fccb00;
+  box-shadow: 0 4px 12px rgba(252, 203, 0, 0.3);
+}
+
+.upload-hint { font-size: 0.7rem; color: #999; margin-top: 5px; }
+
+/* Support Page Styles */
+.support-container { padding: 120px 8% 60px; background: #fdfdfd; min-height: 100vh; }
+.support-hero { text-align: center; margin-bottom: 60px; }
+
+.support-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 50px;
+}
+
+.faq-item {
+  background: #fff;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.faq-question { padding: 20px; font-weight: 700; display: flex; justify-content: space-between; }
+.faq-answer { padding: 0 20px 20px; color: #666; line-height: 1.6; }
+
+.contact-form-card { padding: 40px; border-radius: 20px; }
+.contact-form-card input, .contact-form-card textarea {
+  width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #eee; border-radius: 8px;
+}

@@ -1,0 +1,313 @@
+/* --- ROOT & THEME --- */
+.dashboard-wrapper {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.dashboard-container-light {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 20px 60px;
+}
+
+.portal-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.portal-title span { color: #fccb00; }
+
+/* --- CONTROLS --- */
+.header-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+
+.tab-pill-container {
+  display: flex;
+  background: #fff;
+  padding: 6px;
+  border-radius: 100px;
+  border: 1px solid #e0e0e0;
+}
+
+.tab-pill {
+  padding: 10px 28px;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  font-weight: 700;
+  color: #888;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-pill.active {
+  background: #1a1a1a;
+  color: #fccb00;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.search-box-refined {
+  background: #fff;
+  border: 1px solid #fccb00;
+  border-radius: 100px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  width: 320px;
+}
+
+.search-box-refined input {
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+/* --- GRID & CARDS --- */
+.event-grid-refined {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.event-card-refined {
+  background: #fff;
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.event-card-refined:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+  border-color: #b8860b33;
+}
+
+.category-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #b8860b;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.event-name {
+  font-family: 'Cinzel', serif;
+  margin: 12px 0;
+  font-size: 1.4rem;
+}
+
+.card-bottom {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-outline-dark {
+  background: transparent;
+  border: 1.5px solid #1a1a1a;
+  padding: 8px 24px;
+  border-radius: 100px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-outline-dark:hover {
+  background: #1a1a1a;
+  color: #fccb00;
+}
+
+/* --- REFINED DRAWER --- */
+.drawer-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  opacity: 0; visibility: hidden; transition: 0.4s;
+}
+
+.drawer-overlay.active { opacity: 1; visibility: visible; }
+
+.drawer-content {
+  position: absolute;
+  top: 0; right: -500px;
+  width: 500px; height: 100%;
+  background: white;
+  padding: 80px 50px;
+  transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: -20px 0 50px rgba(0,0,0,0.1);
+}
+
+.drawer-content.open { right: 0; }
+
+/* --- HISTORY TABLE --- */
+.history-table-refined {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.history-table-refined th {
+  padding: 0 20px 10px;
+  color: #aaa;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.table-row-refined {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.table-row-refined td {
+  padding: 20px;
+}
+
+.table-row-refined td:first-child { border-radius: 16px 0 0 16px; }
+.table-row-refined td:last-child { border-radius: 0 16px 16px 0; }
+
+.status-badge-green {
+  background: #eafff5;
+  color: #20c997;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.btn-circle-action {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #eee;
+  background: #fff;
+  cursor: pointer;
+  margin-right: 15px;
+  transition: 0.3s;
+}
+
+.btn-circle-action:hover {
+  background: #fccb00;
+  border-color: #fccb00;
+}
+
+.btn-text-danger {
+  background: none;
+  border: none;
+  color: #ff4d4f;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* --- DRAWER CLOSE BUTTON (RS3) --- */
+.drawer-close-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  background: #f8f8f8;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.drawer-close-btn span {
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #888;
+  margin-top: -2px; /* Visual center correction */
+}
+
+.drawer-close-btn:hover {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  transform: rotate(90deg);
+}
+
+.drawer-close-btn:hover span {
+  color: #fccb00;
+}
+
+/* --- FOOTER & BOOK NOW BUTTON (RS4/RS5) --- */
+.drawer-footer {
+  margin-top: auto;
+  padding-top: 30px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between; /* Keeps price left, button right */
+  align-items: center;
+}
+
+.footer-action-wrapper {
+  margin-left: auto; /* Ensures it stays on the right */
+}
+
+.btn-premium-gold {
+  background: #1a1a1a;
+  color: #fccb00;
+  border: 1.5px solid #1a1a1a;
+  padding: 14px 40px; /* Generous spacing for a professional feel */
+  border-radius: 100px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-premium-gold:hover {
+  background: transparent;
+  color: #1a1a1a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-premium-gold:active {
+  transform: translateY(0);
+}
+
+/* --- PRICE STYLING --- */
+.drawer-price {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+/* Change this: */
+
+
+/* To this: */
+.event-card-refined {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+}

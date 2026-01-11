@@ -1,0 +1,452 @@
+/* --- Global High-End Theme --- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600&display=swap');
+
+:root {
+  --primary-gold: #fccb00;
+  --dark-bg: #1a1a1a;
+  --light-gray: #f9f9f9;
+}
+
+/* --- Hero Section Fixes (RS2) --- */
+.hero-section {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2000') no-repeat center center/cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+}
+
+.main-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  color: white;
+  text-transform: uppercase;
+}
+
+.superscript {
+  color: var(--primary-gold);
+  vertical-align: super;
+  font-size: 0.6em;
+}
+
+/* Hero Section Buttons */
+.hero-btns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.hero-btns .btn-primary {
+  background-color: #fccb00; /* Primary Gold */
+  color: #000;
+  border: 2px solid #fccb00;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 30px;
+  border-radius: 4px; /* Slightly rounded for professional look */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.hero-btns .btn-primary:last-child {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+/* Smooth Hover Animation */
+.hero-btns .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(252, 203, 0, 0.4);
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
+}
+
+/* --- Stats Bar Fix (Horizontal Centering) --- */
+.stats-bar {
+  display: flex;
+  justify-content: center; /* Centers the whole bar */
+  gap: 80px; /* Space between items */
+  padding: 60px 20px;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #111;
+}
+
+.stat-item p {
+  color: #888;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+/* --- Upcoming Events Grid Fix (RS2, RS3) --- */
+.events-grid-section {
+  padding: 80px 10%;
+  background: var(--light-gray);
+  text-align: center;
+}
+
+.section-tag {
+  color: var(--primary-gold);
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Fixes vertical stacking */
+  gap: 30px;
+}
+
+/* --- Event Card Styles & Texture --- */
+.event-card {
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+}
+
+.card-img-wrapper {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.time-badge {
+  position: absolute;
+  top: 0; left: 0;
+  background: var(--primary-gold);
+  padding: 8px 15px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+.card-body h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.pastor-text span {
+  color: var(--primary-gold);
+  font-weight: 600;
+}
+
+.location-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 15px 0;
+  line-height: 1.4;
+}
+
+.btn-join {
+  background: var(--primary-gold);
+  border: none;
+  padding: 12px 25px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-join:hover {
+  background: #000;
+  color: white;
+}
+
+/* --- New About Section (Professional/Clean) --- */
+.about-section {
+  padding: 100px 10%;
+  background: #ffffff;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-container p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #444;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Dynamic Navbar Updates --- */
+.nav-item {
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: white; /* Matches your header theme */
+  transition: 0.3s ease;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+  color: var(--primary-gold);
+  border-bottom: 2px solid var(--primary-gold);
+}
+
+.dashboard-link {
+  color: var(--primary-gold) !important;
+  text-decoration: none;
+}
+
+/* Ensure the navbar remains sticky for smooth scrolling */
+.main-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(26, 26, 26, 0.98); /* Solid dark theme */
+}
+
+/* --- Event Search Styles (RS2) --- */
+.search-container {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.search-wrapper {
+  position: relative;
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.search-wrapper:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(252, 203, 0, 0.15);
+  border-color: var(--primary-gold);
+}
+
+.event-search-input {
+  width: 100%;
+  border: none;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+}
+
+.search-icon {
+  margin-left: 20px;
+  color: var(--primary-gold);
+  font-size: 1.2rem;
+}
+
+.search-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-gold);
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.search-wrapper:focus-within .search-line {
+  width: 100%;
+}
+
+.search-hint {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Entry Animation */
+.animate-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Scroll to Top Button (RS2 Custom) --- */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--dark-bg); /* Black background */
+  border: 2px solid var(--primary-gold); /* Gold border */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top .arrow-up {
+  color: var(--primary-gold);
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: var(--primary-gold);
+}
+
+.scroll-to-top:hover .arrow-up {
+  color: #000;
+  transform: translateY(-3px); /* Subtle bounce on hover */
+}
+
+/* Add a pulse animation to make it noticeable */
+.scroll-to-top.visible {
+  animation: gold-pulse 2s infinite;
+}
+
+@keyframes gold-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(252, 203, 0, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(252, 203, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(252, 203, 0, 0); }
+}
+
+/* --- HERO REVEAL ANIMATIONS --- */
+
+/* Parent container for the text to prevent overflow issues */
+.hero-content {
+  overflow: hidden;
+}
+
+/* The Main Title Reveal */
+.main-title {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.2s; /* Starts right after loader fades */
+}
+
+/* The Subtitle Reveal */
+.hero-subtitle {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+/* The Buttons Reveal */
+.hero-btns {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes heroReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: Add a subtle gold shine effect to the word EVENTLY */
+.word {
+  position: relative;
+  display: inline-block;
+}
+
+.word::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(252, 203, 0, 0.2),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: shine 4s infinite;
+  animation-delay: 2s;
+}
+
+@keyframes shine {
+  100% { left: 200%; }
+}
+
