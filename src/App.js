@@ -137,9 +137,10 @@
                   <div className="hero-overlay">
                     <div className="hero-content">
                       <h1 className="main-title">
-                        <span className="word">EVENTLY<span className="superscript">$</span></span>
+                       <span className="word"> EVENTLY<span className="superscript">$</span></span>
                       </h1>
-                      <p className="hero-subtitle" style={{ color: '#fff'}}>Discover and book amazing events near you.</p>
+                     <h1 className="hero-title cinzel-font">Elevate Your <span>Experience</span></h1>
+  <p className="hero-subtitle"> Discover and secure your place at the world’s most impactful gatherings.</p>
                       <div className="hero-btns">
                         <button className="btn btn-primary py-2 px-4" onClick={() => scrollToSection(eventsRef)}>Explore Events</button>
                         <button className="btn btn-primary py-2 px-4" onClick={() => scrollToSection(aboutRef)}>Learn More</button>

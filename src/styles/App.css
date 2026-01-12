@@ -134,3 +134,24 @@
   font-size: 0.8rem;
 }
 
+.hero-title {
+  font-size: 2.5rem;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  color: hsl(0, 0%, 100%);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-title span {
+  color: #fccb00; /* Your gold accent */
+}
+
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #ffffff;
+  max-width: 500px;
+  margin: 0 auto 35px;
+  letter-spacing: 0.5px;
+}

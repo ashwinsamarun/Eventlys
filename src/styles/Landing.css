@@ -35,14 +35,22 @@
 .main-title {
   font-family: 'Cinzel', serif;
   font-size: clamp(3rem, 8vw, 5rem);
-  color: white;
+  color: #ffffff; /* Forces EVENTLY to be White */
   text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
 }
 
 .superscript {
-  color: var(--primary-gold);
+  /* Using your signature gold hex to be safe */
+  color: #fccb00 !important; 
   vertical-align: super;
-  font-size: 0.6em;
+  font-size: 0.5em; /* Slightly smaller for a more professional look */
+  margin-left: 2px; /* Prevents the $ from touching the 'Y' */
+  font-family: 'Inter', sans-serif; /* Cleaner look for the symbol */
+  text-shadow: 0 0 10px rgba(255, 203, 0, 0.3);
 }
 
 /* Hero Section Buttons */
@@ -426,6 +434,7 @@
 .word {
   position: relative;
   display: inline-block;
+  color: #ffffff; /* Double-check for white text */
 }
 
 .word::after {
