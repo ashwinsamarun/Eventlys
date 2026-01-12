@@ -67,20 +67,20 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, userRole, scrollToHome, scrollToAbo
         <div className="nav-links">
           <span className="nav-item" onClick={() => handleNavClick(scrollToHome)}>Home</span>
           <span className="nav-item" onClick={() => handleNavClick(scrollToAbout)}>About</span>
-          <Link to="/events" className="nav-item">Events</Link>
-          <Link to="/support" className="nav-item">Help</Link>
+          <span  className="nav-item" onClick={() => navigate('/events')}>Events</span>
+          {isLoggedIn && (<span  className="nav-item" onClick={() => navigate('/register-event')}> Register Event</span> )}
+         
           <div className="auth-btns">
             {isLoggedIn ? (
               <>
                 {userRole === 'admin' && (
-                  <Link to="/admin" className="nav-item admin-link" style={{color: '#fccb00', fontWeight: 'bold', marginRight: '15px', textDecoration: 'none'}}>
-                    Admin Console
+                  <Link to="/admin" className="nav-item admin-link" style={{color: '#fccb00', fontWeight: 'bold', marginRight: '15px', textDecoration: 'none'}}>Admin Console
                   </Link>
                 )}
                 
                 <Link to="/dashboard" className="nav-item dashboard-link" style={{marginRight: '15px', textDecoration: 'none'}}>Dashboard</Link>
                 <Link to="/settings" className="nav-item dashboard-link" style={{marginRight: '15px', textDecoration: 'none'}}>Settings</Link>
-                
+                 <span  className="nav-item" style={{marginRight: '15px', textDecoration: 'none'}}onClick={() => navigate('/support')}>Help</span>
                 <button onClick={handleLogout} className="btn-login-outline">Logout</button>
               </>
             ) : (

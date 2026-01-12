@@ -2,42 +2,89 @@
 import React, { useState } from 'react';
 import '../styles/AdminDashboard.css';
 
-const AdminDashboard = () => {
-  const [events, setEvents] = useState([
-    { id: 1, title: "Sharing Our Faith", date: "2026-03-15", price: "$25.00", category: "Faith", sales: 45 },
-    { id: 2, title: "Community Youth Summit", date: "2026-04-20", price: "Free", category: "Youth", sales: 120 },
-    { id: 3, title: "Evening of Reflection", date: "2026-05-10", price: "$15.00", category: "Faith", sales: 30 }
-  ]);
-
+const AdminDashboard = ({ events, onUpdateStatus }) => {
   const [showModal, setShowModal] = useState(false);
   const [newEvent, setNewEvent] = useState({ title: '', date: '', price: '', category: 'Faith' });
 
-  const handleDelete = (id) => {
-    const element = document.getElementById(`admin-row-${id}`);
-    if (element) element.classList.add('row-exit-fade');
-    
-    setTimeout(() => {
-      setEvents(events.filter(event => event.id !== id));
-    }, 400);
-  };
+  // Separate events into Pending (New Submissions) and Approved (Existing Management)
+  const pendingEvents = events.filter(ev => ev.status === 'pending');
+  const approvedEvents = events.filter(ev => ev.status === 'approved');
 
   const handleCreate = (e) => {
     e.preventDefault();
+    // Simulate creating an approved event directly from admin
     const id = events.length + 1;
-    setEvents([...events, { ...newEvent, id, sales: 0 }]);
+    onUpdateStatus({ ...newEvent, id, sales: 0, status: 'approved' }); 
     setShowModal(false);
     setNewEvent({ title: '', date: '', price: '', category: 'Faith' });
+
+    setToast({ show: true, message: "EVENT PUBLISHED SUCCESSFULLY", type: 'approved' });
+    setTimeout(() => setToast({ show: false, message: '', type: '' }), 3000);
   };
 
-  return (
-    <div className="admin-container">
-      <header className="admin-header animate-up">
-        <h1 className="cinzel-font">Admin <span>Management</span></h1>
-        <button className="btn-register-fill" onClick={() => setShowModal(true)}>+ Create New Event</button>
-      </header>
 
-      {/* Stats Section */}
-      <div className="admin-stats-grid animate-up" style={{ animationDelay: '0.1s' }}>
+  const [toast, setToast] = useState({ show: false, message: '', type: '' });
+
+  // NEW: Function to trigger toast
+  const triggerAction = (id, status, title) => {
+    onUpdateStatus(id, status);
+    const message = status === 'approved' 
+      ? `"${title}" IS NOW LIVE` 
+      : `"${title}" HAS BEEN REJECTED`;
+    
+    setToast({ show: true, message, type: status });
+    
+    // Auto-hide toast after 3 seconds
+    setTimeout(() => setToast({ show: false, message: '', type: '' }), 3000);
+  };
+  return (
+   <div className="admin-container">
+      {/* SUCCESS TOAST COMPONENT */}
+      {toast.show && (
+        <div className={`admin-toast ${toast.type === 'approved' ? 'toast-gold' : 'toast-red'}`}>
+          <div className="toast-content">
+            <span className="toast-icon">{toast.type === 'approved' ? '✓' : '✕'}</span>
+            <p>{toast.message}</p>
+          </div>
+          <div className="toast-progress"></div>
+        </div>
+      )}
+
+      {/* 1. NEW: MODERATION QUEUE SECTION */}
+      <section className="moderation-queue animate-up" style={{ animationDelay: '0.05s' }}>
+          <div className="section-header-refined">
+            <h3 className="cinzel-font">Moderation <span>Queue</span></h3>
+            <span className="task-badge">{pendingEvents.length} Pending Approval</span>
+          </div>
+          <div className="glass-panel">
+            <table className="premium-table">
+              <thead>
+                <tr>
+                  <th>User Submission</th>
+                  <th>Organizer</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pendingEvents.map((event) => (
+                  <tr key={event.id} className="fade-in-scale pending-row">
+                    <td><strong>{event.title}</strong></td>
+                    <td>{event.organizer || "User Submitted"}</td>
+                    <td>
+                      <div className="admin-actions">
+                        <button className="approve-btn" onClick={() => triggerAction(event.id, 'approved', event.title)}>Approve</button>
+                        <button className="reject-btn" onClick={() => triggerAction(event.id, 'rejected', event.title)}>Reject</button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      {/* 2. STATS SECTION (Existing) */}
+      <div className="admin-stats-grid animate-up" style={{ animationDelay: '0.1s', marginTop: '40px' }}>
         <div className="stat-card">
           <h3>Total Revenue</h3>
           <p className="stat-value">$4,250.00</p>
@@ -46,7 +93,7 @@ const AdminDashboard = () => {
         <div className="stat-card">
           <h3>Active Bookings</h3>
           <p className="stat-value">195</p>
-          <span className="stat-label">Across 3 events</span>
+          <span className="stat-label">Across {approvedEvents.length} live events</span>
         </div>
         <div className="stat-card">
           <h3>User Growth</h3>
@@ -55,8 +102,11 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-      {/* Management Table */}
-      <div className="glass-panel animate-up" style={{ animationDelay: '0.2s', marginTop: '40px' }}>
+      {/* 3. MANAGEMENT TABLE (Existing - Now filtered for Approved only) */}
+      <div className="section-header-refined animate-up" style={{ marginTop: '50px' }}>
+        <h3 className="cinzel-font">Active <span>Events</span></h3>
+      </div>
+      <div className="glass-panel animate-up" style={{ animationDelay: '0.2s' }}>
         <table className="premium-table">
           <thead>
             <tr>
@@ -68,17 +118,17 @@ const AdminDashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {events.map((event) => (
+            {approvedEvents.map((event) => (
               <tr key={event.id} className="fade-in-scale">
                 <td><strong>{event.title}</strong></td>
                 <td><span className="badge-category">{event.category}</span></td>
                 <td>{event.date}</td>
-                <td>{event.sales} Tickets</td>
+                <td>{event.sales || 0} Tickets</td>
                 <td>
                   <div className="admin-actions">
-                      <button className="action-btn-circle edit" title="Edit">✎</button>
-                      <button className="action-btn-circle delete" onClick={() => handleDelete(event.id)} title="Delete">×</button>
-                    </div>
+                    <button className="action-btn-circle edit" title="Edit">✎</button>
+                    <button className="action-btn-circle delete" onClick={() => onUpdateStatus(event.id, 'deleted')} title="Delete">×</button>
+                  </div>
                 </td>
               </tr>
             ))}
@@ -86,7 +136,7 @@ const AdminDashboard = () => {
         </table>
       </div>
 
-      {/* CREATE EVENT MODAL */}
+      {/* CREATE EVENT MODAL (Existing) */}
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content animate-up">
