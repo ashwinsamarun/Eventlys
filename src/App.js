@@ -17,7 +17,8 @@ import EventDetails from './pages/EventDetails';
 import Checkout from './pages/Checkout';
 import Success from './pages/Success';
 import LoadingOverlay from './components/LoadingOverlay';
-import RegisterEvent from './pages/RegisterEvent'; // Added Import
+import RegisterEvent from './pages/RegisterEvent'; 
+import EventCalendar from './pages/EventCalendar';
 
 // Import Styles
 import './styles/App.css';
@@ -270,6 +271,7 @@ function App() {
         <Route path="/settings" element={isLoggedIn ? <Settings /> : <Navigate to="/login" />} /> 
         <Route path="/success" element={isLoggedIn ? <Success /> : <Navigate to="/login" />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/calendar" element={<EventCalendar events={events} />} />
         
         <Route path="/admin" element={
           <AdminRoute isLoggedIn={isLoggedIn} userRole={userRole}>

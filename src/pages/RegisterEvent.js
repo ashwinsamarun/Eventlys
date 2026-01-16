@@ -58,7 +58,7 @@ const RegisterEvent = ({ onAdd }) => {
           <div className="form-row">
             {/* New Location Field */}
             <div className="form-group">
-              <label>Location</label>
+              <label>Venue</label>
               <input type="text" placeholder="Full Address" required onChange={e => setForm({...form, location: e.target.value})} />
             </div>
             {/* New Time Field */}
